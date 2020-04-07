@@ -476,7 +476,7 @@ NSS_CMSSignedData_SignerInfoCount(NSSCMSSignedData *sigd)
 NSSCMSSignerInfo *
 NSS_CMSSignedData_GetSignerInfo(NSSCMSSignedData *sigd, int i)
 {
-    if (!sigd) {
+    if (!sigd || !sigd->signerInfos) {
         PORT_SetError(SEC_ERROR_INVALID_ARGS);
         return NULL;
     }
